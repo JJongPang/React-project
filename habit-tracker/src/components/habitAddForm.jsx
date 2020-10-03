@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class HabitAddForm extends Component {
+//PureComponent: props, state에 안에 들어있는 데이터가 최상위 데이터가 변하지 않으면 render함수가 호출 되지 안습니다.
+class HabitAddForm extends PureComponent {
   formRef = React.createRef();
   inputRef = React.createRef();
 

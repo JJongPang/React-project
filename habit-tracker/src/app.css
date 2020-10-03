@@ -11,6 +11,7 @@ button {
 .navbar {
   font-size: 2rem;
   padding: 1em;
+  margin-bottom: 1em;
   background-color: blanchedalmond;
 }
 
