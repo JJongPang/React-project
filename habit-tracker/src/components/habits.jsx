@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Habit from "./habit";
 import HabitAddForm from "./habitAddForm";
-import Reset from "./reset";
 
 class Habits extends Component {
   render() {
@@ -19,6 +18,9 @@ class Habits extends Component {
             />
           ))}
         </ul>
+        <button className="habits-reset" onClick={this.props.onReset}>
+          Reset All
+        </button>
       </>
     );
   }
