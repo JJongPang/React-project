@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import VideoList from "./components/video_list/Video_list";
 
 const App = () => {
-  const [video, setVideo] = useState([]);
+  const [videos, setVideo] = useState([]);
 
   useEffect(() => {
     const requestOptions = {
@@ -17,7 +18,7 @@ const App = () => {
       .then((result) => setVideo(result.items))
       .catch((error) => console.log("error", error));
   }, []);
-  return <h1>Hello</h1>;
+  return <VideoList videos={videos} />;
 };
 
 export default App;
