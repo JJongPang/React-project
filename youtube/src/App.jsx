@@ -3,6 +3,7 @@ import SearchHeader from "./components/search-header/Search_Header";
 import VideoList from "./components/video_list/Video_List";
 import styles from "./App.module.css";
 import Video_Detail from "./components/video_detail/Video_Detail";
+import { useCallback } from "react";
 
 const App = ({ youtube }) => {
   const [videos, setVideo] = useState([]);
@@ -12,18 +13,21 @@ const App = ({ youtube }) => {
     setSelectedVideo(video);
   };
 
-  const search = (query) => {
-    setSelectedVideo(null);
-    youtube
-      .search(query) //
-      .then((videos) => setVideo(videos));
-  };
+  const search = useCallback(
+    (query) => {
+      setSelectedVideo(null);
+      youtube
+        .search(query) //
+        .then((videos) => setVideo(videos));
+    },
+    [youtube]
+  );
 
   useEffect(() => {
     youtube
       .mostPopular() //
       .then((videos) => setVideo(videos));
-  }, []);
+  }, [youtube]);
   return (
     <div className={styles.app}>
       <SearchHeader onSearch={search} />
