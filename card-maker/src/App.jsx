@@ -1,12 +1,13 @@
 import React from "react";
-import withFirebaseAuth from "react-with-firebase-auth";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "./service/firebase";
 import Login from "./component/login/login";
+import styles from "./App.module.css";
 
-const App = () => {
-  return <Login />;
+const App = ({ authService }) => {
+  return (
+    <div className={styles.app}>
+      <Login authService={authService} />
+    </div>
+  );
 };
 
 export default App;
